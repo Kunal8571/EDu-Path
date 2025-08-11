@@ -25,14 +25,14 @@
                     Edu<span>Path</span>
                 </a>
                 
-                <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#" class="active">Programs</a>
-                    <a href="#">Admissions</a>
-                    <a href="#">Resources</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                </div>
+                  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="program.html">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
                 
                 <div class="auth-buttons">
                     <a href="#" class="btn btn-outline">Login</a>
@@ -504,6 +504,20 @@
                 observer.observe(el);
             });
         });
+
+         // ---navbar --//
+
+    const currentLocation = location.pathname.split("/").pop();
+    const menuItems = document.querySelectorAll('#navLinks a');
+
+    menuItems.forEach(item => {
+        if (item.getAttribute('href') === currentLocation) {
+            item.classList.add('active');
+        }
+    });
+
+// ---navbar end--- //
+
     </script>
 </body>
 </html>

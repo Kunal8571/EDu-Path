@@ -9,25 +9,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
-    <!-- Header -->
+    <!-- header -->
     <header id="header">
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
                     <i class="fas fa-graduation-cap"></i>
                     Edu<span>Path</span>
+                    
                 </a>
                 
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="program.html">Programs</a>
-                    <a href="#">Admissions</a>
-                    <a href="#">Resources</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
-                </div>
+                  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="program.html">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="resources.html">Resources</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
                 
                 <div class="auth-buttons">
                     <a href="#" class="btn btn-outline">Login</a>
@@ -36,6 +39,37 @@
             </nav>
         </div>
     </header>
+
+      <!-- Hero Image / Slide -->
+ <header class="hero">
+  <div class="hero-slide">
+    <div class="slide active">
+      <img src="first.png" alt="B.Sc Nursing">
+      <div class="overlay">
+        <h1>Welcome to EduPath</h1>
+        <p>Your path to a bright career in Nursing</p>
+        <a href="admissions.html" class="btn">Apply Now</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="second.png" alt="Modern Labs">
+      <div class="overlay">
+        <h1>World-Class Facilities</h1>
+        <p>Hands-on training with advanced technology</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="third.png" alt="Student Community">
+      <div class="overlay">
+        <h1>Join Our Community</h1>
+        <p>Collaborate, learn, and grow together</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -380,6 +414,36 @@
                 observer.observe(el);
             });
         });
-    </script>
+    
+  
+  // ---navbar --//
+
+    const currentLocation = location.pathname.split("/").pop();
+    const menuItems = document.querySelectorAll('#navLinks a');
+
+    menuItems.forEach(item => {
+        if (item.getAttribute('href') === currentLocation) {
+            item.classList.add('active');
+        }
+    });
+
+// ---navbar end--- //
+
+// images /slides //
+
+let index = 0;
+const slides = document.querySelector(".slides");
+const totalSlides = document.querySelectorAll(".slides img").length;
+
+function showSlide() {
+  index++;
+  if (index >= totalSlides) index = 0;
+  slides.style.transform = `translateY(-${index * 400}px)`; // 400 = height of slider
+}
+
+setInterval(showSlide, 3000); // changes every 3 seconds
+
+
+</script>
 </body>
 </html>
